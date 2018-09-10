@@ -1,3 +1,8 @@
-import './assets/scss/style.scss';
+import Vue from 'vue';
+import App from './App';
 
-console.log('runned');
+new Vue({
+    el: '#app',
+    components: { App },
+    template: '<App />',
+});
