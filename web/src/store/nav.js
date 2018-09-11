@@ -9,6 +9,10 @@ export default {
                 label: 'Setting',
                 link: '/dashboard/setting',
             },
+            {
+                label: 'Field',
+                link: '/dashboard/setting/field',
+            },
         ]
     }
 }
