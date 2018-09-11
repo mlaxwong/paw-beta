@@ -8,7 +8,7 @@
             </nav>
         </div>
         <div class="main-container">
-            <header>{{ test }}</header>
+            <header>{{ this.$t("app.welcome") }}</header>
             <main>
                 <router-view></router-view>
             </main>
@@ -27,6 +27,7 @@ export default {
     // }
     computed: {
         test: () => {
+            console.log(this);
             return 'testingss';
         }
     }
