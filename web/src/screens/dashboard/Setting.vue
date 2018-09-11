@@ -1,6 +1,6 @@
 <template>
     <div class="page-dashboard-setting">
-        this is setting page
+        setting
     </div>
 </template>
 

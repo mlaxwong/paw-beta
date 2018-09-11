@@ -5,7 +5,7 @@
   "author": "Mlax Wong <mlaxwong@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "webpack-dev-server --mode=development",
+    "dev": "webpack-dev-server --config ./webpack.config.js --progress",
     "build": "webpack -d",
     "build:prod": "webpack -p"
   },

@@ -8,7 +8,7 @@ Vue.use(Router);
 const router = new Router({
 	// hashbang: false,
 	base: process.env.PATH_VUE_PUBLIC,
-	mode: 'history',
+	// mode: 'history',
     routes: [
 		... authRoute,
 		... dashboardRoute,

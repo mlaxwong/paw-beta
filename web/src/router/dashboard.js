@@ -18,7 +18,10 @@ export default [
             {
                 path: 'setting',
                 name: 'Setting',
-                meta: {rules: 'all'},
+                meta: {
+                    rules: 'all',
+                    crumbs: [{label: 'Setting', link: '/dashboard/setting'}],
+                },
                 component: Setting,
             }
         ]
