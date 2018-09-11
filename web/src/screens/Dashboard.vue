@@ -3,7 +3,7 @@
         <div class="global-sidebar">
             <nav>
                 <ul>
-
+                    <router-link v-for="item in nav.items" :key="item.key" :to="item.link" tag="li"><a>{{ item.label }}</a></router-link>
                 </ul>
             </nav>
         </div>
@@ -18,21 +18,15 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Crumbs from '@/components/widgets/Crumbs';
 
 export default {
     name: 'Dashboard',
-    // data() {
-    //     console.log(this.$store);
-    //     return {
-    //         test: 'testing',
-    //     };
-    // }
     computed: {
-        test: () => {
-            console.log(this);
-            return 'testingss';
-        }
+        nav() {
+            return this.$store.state.nav
+        },
     },
     components: { Crumbs }
 }

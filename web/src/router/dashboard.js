@@ -1,19 +1,25 @@
-import DashboardScreen from '@/screens/Dashboard';
-import HomeScreen from '@/screens/dashboard/Home';
+import DashboardLayout from '@/screens/Dashboard';
+import Dashboard from '@/screens/dashboard/Index';
+import Setting from '@/screens/dashboard/Setting';
 
 export default [
     {
         path: '/dashboard',
-        name: 'Dashboard',
+        name: 'DashboardLayout',
         meta: {rules: 'all'},
-        component: DashboardScreen,
-        // redirect: '/dashboard/home',
+        component: DashboardLayout,
         children: [
             {
-                path: 'home',
-                name: 'Home',
+                path: '',
+                name: 'Dashboard',
                 meta: {rules: 'all'},
-                component: HomeScreen,
+                component: Dashboard,
+            },
+            {
+                path: 'setting',
+                name: 'Setting',
+                meta: {rules: 'all'},
+                component: Setting,
             }
         ]
     }

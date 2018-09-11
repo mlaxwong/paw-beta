@@ -1,5 +1,14 @@
 export default {
     state: {
-        message: 'testing',
+        items: [
+            {
+                label: 'Dashboard',
+                link: '/dashboard',
+            },
+            {
+                label: 'Setting',
+                link: '/dashboard/setting',
+            },
+        ]
     }
 }
