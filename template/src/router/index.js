@@ -6,8 +6,9 @@ import dashboardRoute from './dashboard';
 Vue.use(Router);
 
 const router = new Router({
-	hashbang: false,
-	history: true,
+	// hashbang: false,
+	base: '/mlaxology/packages/mlaxwong/paws-beta/web',
+	mode: 'history',	
     routes: [
 		... authRoute,
 		... dashboardRoute,

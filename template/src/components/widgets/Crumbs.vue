@@ -20,7 +20,7 @@ export default {
             const crumbs = this.$route.meta.crumbs || [];
             crumbs.unshift({
                 label: this.$t('app.dashboard'),
-                link: '/dashboard',
+                link: '/dashboard/home',
             });
             this.crumbs = crumbs;
         }
