@@ -11,7 +11,7 @@
             <Crumbs />
             <main>
                 <header></header>
-                <router-view></router-view>
+                <router-view/>
             </main>
         </div>
     </div>

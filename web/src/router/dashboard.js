@@ -7,10 +7,10 @@ export default [
         name: 'Dashboard',
         meta: {rules: 'all'},
         component: DashboardScreen,
-        redirect: '/dashboard/home',
+        // redirect: '/dashboard/home',
         children: [
             {
-                path: '/dashboard/home',
+                path: 'home',
                 name: 'Home',
                 meta: {rules: 'all'},
                 component: HomeScreen,

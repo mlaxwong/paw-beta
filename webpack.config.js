@@ -1,19 +1,22 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const webpack = require('webpack')
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const dotenv = require('dotenv').config({path: __dirname + '/.env'});
 
 module.exports = {
-    entry: './template/src/main.js',
+    entry: './web/src/main.js',
     output: {
-        path: path.resolve(__dirname, 'web'),
-        filename: 'bundle.js'
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js',
+        publicPath: dotenv.parsed.PATH_VUE_PUBLIC
     },
     resolve: {
         extensions: ['.js', '.vue'],
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
-            '@': path.resolve('template/src'),
+            '@': path.resolve('web/src'),
         }
     },
     module: {
@@ -57,9 +60,12 @@ module.exports = {
         ],
     },
     plugins: [
+        new webpack.DefinePlugin({
+            "process.env": JSON.stringify(dotenv.parsed)
+        }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template: './template/src/index.html',
+            template: './web/src/index.html',
             inject: true
         }),
         new MiniCssExtractPlugin({

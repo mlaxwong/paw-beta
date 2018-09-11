@@ -7,8 +7,8 @@ Vue.use(Router);
 
 const router = new Router({
 	// hashbang: false,
-	base: '/mlaxology/packages/mlaxwong/paws-beta/web',
-	mode: 'history',	
+	base: process.env.PATH_VUE_PUBLIC,
+	mode: 'history',
     routes: [
 		... authRoute,
 		... dashboardRoute,
