@@ -8,8 +8,9 @@
             </nav>
         </div>
         <div class="main-container">
-            <header>{{ this.$t("app.welcome") }}</header>
+            <Crumbs />
             <main>
+                <header></header>
                 <router-view></router-view>
             </main>
         </div>
@@ -17,6 +18,8 @@
 </template>
 
 <script>
+import Crumbs from '@/components/widgets/Crumbs';
+
 export default {
     name: 'Dashboard',
     // data() {
@@ -30,7 +33,8 @@ export default {
             console.log(this);
             return 'testingss';
         }
-    }
+    },
+    components: { Crumbs }
 }
 </script>
 

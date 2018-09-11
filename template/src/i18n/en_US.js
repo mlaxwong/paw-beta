@@ -1,5 +1,5 @@
 export default {
     app: {
-        welcome: 'Welcome'
+        'dashboard': 'Dashboard',
     }
 };
