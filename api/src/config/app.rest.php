@@ -5,21 +5,6 @@ return [
         '@pawsbeta' => PATH_BASE . '/api/src',
     ],
     'components' => [
-        // 'errorHandler' => [
-        //     'class' => yii\web\ErrorHandler::class,
-        //     'errorAction' => 'auth/test'
-        // ],
-        'user' => [
-            'identityClass' => paws\records\User::class,
-            'enableSession' => false,
-            'loginUrl' => null,
-        ],
-        'request' => [
-            'enableCsrfValidation' => false, 
-            'parsers' => [
-                'application/json' => yii\web\JsonParser::class,
-            ]
-        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'enableStrictParsing' => true,
@@ -36,7 +21,6 @@ return [
                         'GET test' => 'test',
                     ]
                 ],
-                // ['class' => yii\rest\UrlRule::class, 'controller' => 'auth'],
             ],        
         ],
     ],

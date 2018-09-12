@@ -9,5 +9,5 @@ require_once PATH_VENDOR . DIRECTORY_SEPARATOR . 'autoload.php';
 if (file_exists(PATH_BASE. DIRECTORY_SEPARATOR . '.env'))  (new Dotenv\Dotenv(PATH_BASE))->load();
 
 // Run appication
-$app = require_once PATH_VENDOR . '/mlaxwong/paws/bootstrap/restful.php';
+$app = require_once PATH_VENDOR . '/mlaxwong/paws/bootstrap/rest.php';
 $app->run();
