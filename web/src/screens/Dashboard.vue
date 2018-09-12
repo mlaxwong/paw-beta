@@ -2,6 +2,7 @@
     <div class="global-container">
         <div class="global-sidebar">
             <nav>
+                <TreeMenu :items="nav.items"/>
                 <ul>
                     <router-link v-for="item in nav.items" :key="item.key" :to="item.link" tag="li"><a>{{ item.label }}</a></router-link>
                 </ul>
@@ -21,6 +22,7 @@
 
 <script>
 import Crumbs from '@/components/widgets/Crumbs';
+import TreeMenu from '@/components/widgets/TreeMenu';
 import '@/assets/scss/style.scss';
 
 export default {
@@ -28,7 +30,7 @@ export default {
     computed: {
         nav() { return this.$store.state.nav },
     },
-    components: { Crumbs }
+    components: { Crumbs, TreeMenu }
 }
 </script>
 

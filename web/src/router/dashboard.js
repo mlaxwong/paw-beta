@@ -7,20 +7,17 @@ export default [
     {
         path: '/dashboard',
         name: 'DashboardLayout',
-        meta: {rules: 'all'},
         component: DashboardLayout,
         children: [
             {
                 path: '',
                 name: 'Dashboard',
-                meta: {rules: 'all'},
                 component: Dashboard,
             },
             {
                 path: 'setting',
                 name: 'Setting',
                 meta: {
-                    rules: 'all',
                     crumbs: [{label: 'Setting', link: '/dashboard/setting'}],
                 },
                 component: Setting,
@@ -29,7 +26,6 @@ export default [
                 path: 'setting/field',
                 name: 'Field',
                 meta: {
-                    rules: 'all',
                     crumbs: [
                         {label: 'Setting', link: '/dashboard/setting'},
                         {label: 'Field', link: '/dashboard/setting/field'},

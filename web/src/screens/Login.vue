@@ -1,7 +1,8 @@
 <template>
     <div class="page-login">
-        <router-link to="/dashboard"><a>dashboard</a></router-link>
-        this is login page
+        <input type="text" name="username" />
+        <input type="password" name="password" />
+        <button>Login</button>
     </div>
 </template>
 
