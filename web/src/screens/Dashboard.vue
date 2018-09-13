@@ -3,9 +3,6 @@
         <div class="global-sidebar">
             <nav>
                 <TreeMenu :items="nav.items"/>
-                <ul>
-                    <router-link v-for="item in nav.items" :key="item.key" :to="item.link" tag="li"><a>{{ item.label }}</a></router-link>
-                </ul>
             </nav>
         </div>
         <div class="main-container">
