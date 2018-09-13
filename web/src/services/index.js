@@ -1,1 +1,5 @@
-export * from './user.service';
+import user from './user.service';
+
+export default {
+    user,
+}

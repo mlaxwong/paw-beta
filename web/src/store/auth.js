@@ -1,4 +1,4 @@
-import { userSerive } from '@/services'
+import services from '@/services'
 
 const state = {
     logged: false,
@@ -6,7 +6,8 @@ const state = {
 
 const actions = {
     login({ dispatch, commit }, {username, password}) {
-        console.log(username, password);
+        services.user.login(username, password);
+        // userSerive.login(username, password);
     }
 };
 

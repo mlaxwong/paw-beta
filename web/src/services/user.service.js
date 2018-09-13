@@ -1,4 +1,4 @@
-export const userService = {
+export default {
     login
 }
 
