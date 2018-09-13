@@ -1,14 +1,31 @@
 <template>
     <div class="page-login">
-        <input type="text" name="username" />
-        <input type="password" name="password" />
-        <button>Login</button>
+        <form @submit.prevent="handleSubmit">
+            <input type="text" name="username" v-model="username" />
+            <input type="password" name="password" v-model="password" />
+            <button>Login</button>
+        </form>
     </div>
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
+
 export default {
-    name: 'Login'
+    name: 'Login',
+    data() {
+        return {
+            username: '',
+            password: '',
+        };
+    },
+    methods: {
+        ...mapActions('auth', ['login']),
+        handleSubmit(e) {
+            const {username, password} = this;
+            this.login({username, password});
+        }
+    }
 }
 </script>
 
