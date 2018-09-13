@@ -3,6 +3,8 @@ namespace paws\api\controllers;
 
 use yii\rest\Controller;
 use Paws;
+use paws\records\User;
+use paws\api\models\LoginForm;
 
 class AuthController extends Controller
 {
@@ -14,13 +16,14 @@ class AuthController extends Controller
     //     return $behaviors;
     // }
 
-    public function actionIndex()
+    public function actionLogin()
     {
-        return 'test';
-    }
-
-    public function actionTest()
-    {
-        return ['yes'];
+        $model = new LoginForm();
+        $model->load(Paws::$app->request->getBodyParams(), '');
+        if ($user = $model->submit()) {
+            return $user;
+        } else {
+            return $model;
+        }
     }
 }

@@ -5,23 +5,15 @@ return [
         '@pawsbeta' => PATH_BASE . '/api/src',
     ],
     'components' => [
+        // 'errorHandler' => [
+        //     'class' => yii\web\ErrorHandler::class,
+        //     'errorAction' => 'welcome/error'
+        // ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'enableStrictParsing' => true,
             'showScriptName' => false,
-            'rules' => [
-                // ['class' => yii\rest\UrlRule::class, 'controller' => 'user'],
-                [
-                    'class' => yii\rest\UrlRule::class,
-                    'pluralize' => false,
-                    'controller'=> 'auth',
-                    'patterns' => [
-                        'POST register' => 'register',
-                        'POST login' => 'login',
-                        'GET test' => 'test',
-                    ]
-                ],
-            ],        
+            'rules' => require(__DIR__ . '/rules.php'),        
         ],
     ],
 ];
