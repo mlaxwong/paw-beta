@@ -6,8 +6,8 @@ import i18n from './i18n'
 
 new Vue({
     el: '#app',
-    router,
     store,
+    router,
     i18n,
     components: { App },
     template: '<App />',

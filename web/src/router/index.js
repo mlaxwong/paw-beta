@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import authRoute from './auth';
 import dashboardRoute from './dashboard';
+import store from '@/store';
 
 Vue.use(Router);
 
@@ -18,6 +19,7 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
 	const metaRules = to.meta.rules;
 	const rules = metaRules ? metaRules : 'authed';
+	const loggedIn = localStorage.getItem('user');
 
 	const loginPath = '/login';
 	const dashboardPath = '/dashboard';
@@ -25,13 +27,21 @@ router.beforeEach((to, from, next) => {
 	switch (rules)
 	{
 		case 'authed': {
-			return next({
-				path: loginPath,
-				query: { redirect: to.fullPath }
-			})
+			if (!loggedIn) {
+				return next({
+					path: loginPath,
+					query: { redirect: to.fullPath }
+				})
+			} else {
+				return next();
+			}
 		}
 		case 'guest': {
-			return next();
+			if (loggedIn) {
+				return next({path: dashboardPath})
+			} else {
+				return next();
+			}
 		}
 		case 'all': {
 			return next();

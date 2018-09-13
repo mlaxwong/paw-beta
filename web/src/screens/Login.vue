@@ -10,6 +10,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import router from '@/router'
 
 export default {
     name: 'Login',
@@ -23,7 +24,14 @@ export default {
         ...mapActions('auth', ['login']),
         handleSubmit(e) {
             const {username, password} = this;
-            this.login({username, password});
+            this.login({username, password}).then(
+                user => {
+                    router.push('/dashboard');
+                },
+                error => {
+                    console.log(error);
+                }
+            );
         }
     }
 }

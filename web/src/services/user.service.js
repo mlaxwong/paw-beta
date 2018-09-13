@@ -8,9 +8,17 @@ function login(username, password) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
     };
+    return fetch ('http://localhost/mlaxology/packages/mlaxwong/paws-beta/dist/api/auth/login', requestOptions)
+        .then(handleResponse)
+        .then(user =>  user);
+}
 
-    fetch ('http://localhost/mlaxology/packages/mlaxwong/paws-beta/dist/api/auth/login', requestOptions)
-    .then(response => {
-        console.log(response);
+function handleResponse(response)
+{
+    return response.json().then(json => {
+        if (!response.ok) {
+            return Promise.reject(json);
+        }
+        return json;
     });
 }

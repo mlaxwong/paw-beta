@@ -1,5 +1,5 @@
-export default {
-    state: {
+function state() {
+    return {
         items: [
             {
                 label: 'Dashboard',
@@ -20,5 +20,9 @@ export default {
                 ]
             },
         ]
-    }
+    };
+}
+
+export default {
+    state,
 }
