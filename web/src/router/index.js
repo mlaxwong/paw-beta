@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import authRoute from './auth';
-import dashboardRoute from './dashboard';
-import store from '@/store';
+import publicRoute from './public'
+import authRoute from './auth'
+import dashboardRoute from './dashboard'
 
 Vue.use(Router);
 
@@ -11,6 +11,7 @@ const router = new Router({
 	base: process.env.PATH_VUE_PUBLIC,
 	mode: 'history',
     routes: [
+		... publicRoute,
 		... authRoute,
 		... dashboardRoute,
 	]
