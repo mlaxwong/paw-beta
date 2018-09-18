@@ -24,5 +24,6 @@ function state() {
 }
 
 export default {
+    namespace: true,
     state,
 }

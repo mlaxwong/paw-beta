@@ -7,7 +7,7 @@ const state = {
 
 const actions = {
     login({ dispatch, commit }, {username, password}) {
-        services.user.login(username, password)
+        return services.user.login(username, password)
             .then(
                 user => {
                     commit('loginSuccess', user);
@@ -18,6 +18,9 @@ const actions = {
                     return error;
                 }
             );
+    },
+    logout({ commit }) {
+        commit('logout');
     }
 };
 
@@ -26,13 +29,16 @@ const mutations = {
         state.logging = true;
     },
     loginSuccess(state, user) {
+        localStorage.setItem('user', JSON.stringify(user));
         state.logging = false;
         state.user = user;
-        localStorage.setItem('user', JSON.stringify(user));
     },
     loginFailure(state, error) {
         state.logging = false;
         state.user = null;
+    },
+    logout() {
+        localStorage.removeItem('user');
     }
 };
 

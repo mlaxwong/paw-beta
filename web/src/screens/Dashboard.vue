@@ -1,6 +1,7 @@
 <template>
     <div class="global-container">
         <div class="global-sidebar">
+            <a href="#" @click.prevent="handleClickLogout">Logout</a>
             <nav>
                 <TreeMenu :items="nav.items"/>
             </nav>
@@ -18,6 +19,8 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
+import router from '@/router'
 import Crumbs from '@/components/widgets/Crumbs';
 import TreeMenu from '@/components/widgets/TreeMenu';
 import '@/assets/scss/style.scss';
@@ -26,6 +29,13 @@ export default {
     name: 'Dashboard',
     computed: {
         nav() { return this.$store.state.nav },
+    },
+    methods: {
+        ...mapActions('auth', ['logout']),
+        handleClickLogout(e) {
+            this.logout();
+            router.push('/login');
+        }
     },
     components: { Crumbs, TreeMenu }
 }

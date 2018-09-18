@@ -17,4 +17,5 @@ return [
             'POST login' => 'login',
         ]
     ],
+    ['class' => yii\rest\UrlRule::class, 'controller' => 'field'],
 ];
