@@ -3,7 +3,8 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const dotenv = require('dotenv').config({path: __dirname + '/.env'});
+const dotenv = require('dotenv').config({path: __dirname + '/.env'})
+const config = require('./web/src/config')
 
 module.exports = {
     mode: dotenv.parsed.ENVIRONMENT == 'prod' ? 'production' : 'development',
@@ -62,7 +63,8 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            "process.env": JSON.stringify(dotenv.parsed)
+            "process.env": JSON.stringify(dotenv.parsed),
+            config: JSON.stringify(config)
         }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
