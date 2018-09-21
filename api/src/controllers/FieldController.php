@@ -10,17 +10,17 @@ use paws\records\CollectionField;
 class FieldController extends ActiveController
 {
     public function behaviors()
-{
-    $behaviors = parent::behaviors();
-    $behaviors['authenticator'] = [
-        'class' => CompositeAuth::class,
-        'authMethods' => [
-            HttpBearerAuth::class,
-            HttpBasicAuth::class,
-        ],
-    ];
-    return $behaviors;
-}
+    {
+        $behaviors = parent::behaviors();
+        $behaviors['authenticator'] = [
+            'class' => CompositeAuth::class,
+            'authMethods' => [
+                HttpBearerAuth::class,
+                HttpBasicAuth::class,
+            ],
+        ];
+        return $behaviors;
+    }
 
     public $modelClass = CollectionField::class;
 }
