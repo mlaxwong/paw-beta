@@ -7,11 +7,25 @@ import counter from './counter'
 
 Vue.use(Vuex);
 
-export default new Vuex.Store({
-    modules: {
-        auth,
-        nav,
-        field,
-        counter,
-    }
-})
+let store;
+
+const initStore = () =>  {
+    return store || (store = new Vuex.Store({
+        modules: {
+            auth,
+            nav,
+            field,
+            counter,
+        }
+    }))
+}
+export default initStore
+
+// export default new Vuex.Store({
+//     modules: {
+//         auth,
+//         nav,
+//         field,
+//         counter,
+//     }
+// })
