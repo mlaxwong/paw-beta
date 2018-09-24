@@ -25,6 +25,11 @@ const actions = {
 };
 
 const mutations = {
+    init(state) {
+        if (localStorage.getItem('user') && state.user == null) {
+            state.user = JSON.parse(localStorage.getItem('user'));
+        }
+    },
     loginRequest(state) {
         state.logging = true;
     },
@@ -42,9 +47,14 @@ const mutations = {
     }
 };
 
+function getters() {
+    getUser = state => state.user
+};
+
 export default {
     namespaced: true,
     state,
     actions,
     mutations,
+    getters,
 }

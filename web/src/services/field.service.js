@@ -7,7 +7,8 @@ export default {
 
 function getAll() {
     return fetch ({
-        url: config.constant.API_FIELD
+        url: config.constant.API_FIELD,
+        auth: true,
     });
         // config.constant.API_FIELD, requestOptions)
         // .then(handleResponse)

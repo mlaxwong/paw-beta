@@ -1,15 +1,16 @@
-import Vue from 'vue';
 import store from '@/store'
 import router from '@/router'
 
 export default ({
     method = 'GET', 
     url = null, 
-    auth = false, 
+    auth = false,
     headers = getHeaders(),
     body = null,
     options = {},
 }) => { 
+    store.state.user = {id: 'zzz'};
+    headers = getHeaders(headers, auth);
     return fetch(url, {
         method,
         headers,
@@ -18,11 +19,20 @@ export default ({
     }).then(handleResponse); 
 }
 
-function getHeaders()
+function getHeaders(headers = null, auth = false)
 {
-    const headers = new Headers();
-    headers.set('Content-Type', 'application/json');
-    return headers;
+    if (headers == null) {
+        headers = new Headers();
+        headers.set('Content-Type', 'application/json');
+        return headers;
+    } else {
+        if (auth) {
+            const user = store.state.auth.user;
+            const token = user.token;
+            headers.set('Authorization', 'Bearer ' + token);
+        }
+        return headers;
+    }
 }
 
 function handleResponse(response) {

@@ -3,6 +3,8 @@
         <form @submit.prevent="handleSubmit">
             <button>Test</button>
         </form>
+        <div>{{ this.$store.state.counter.counter }}</div>
+        <button @click.prevent="handleClick">increate</button>
     </div>
 </template>
 
@@ -15,6 +17,9 @@ export default {
         ...mapActions('field', ['getAll']),
         handleSubmit(e) {
             this.getAll();
+        },
+        handleClick(e) {
+            this.$store.state.counter.counter += 1;
         }
     }
 }

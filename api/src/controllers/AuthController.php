@@ -21,7 +21,10 @@ class AuthController extends Controller
         $model = new LoginForm();
         $model->load(Paws::$app->request->getBodyParams(), '');
         if ($user = $model->submit()) {
-            return $user;
+            return [
+                'id' => $user->id,
+                'token' => $user->auth_key,
+            ];
         } else {
             return $model;
         }
