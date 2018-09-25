@@ -8,6 +8,9 @@ const actions = {
     getAll({ commit }) {
         return services.field.getAll();
     },
+    create({ commit }, {handle, name, config = {}}) {
+        return services.field.create(handle, name, config);
+    },
 };
 
 const mutations = {

@@ -1,16 +1,25 @@
-import handleResponse from '@/helpers/handleResponse'
 import fetch from '@/helpers/fetch'
 
 export default {
-    getAll
+    getAll,
+    create
 }
 
 function getAll() {
     return fetch ({
-        url: config.constant.API_FIELD,
+        url: globalConfig.constant.API_FIELD,
         auth: true,
     });
-        // config.constant.API_FIELD, requestOptions)
+        // globalConfig.constant.API_FIELD, requestOptions)
         // .then(handleResponse)
         // .then(fields =>  fields);
+}
+
+function create(handle, name, config = {}) {
+    return fetch ({
+        url: globalConfig.constant.API_FIELD,
+        method: 'POST',
+        auth: true,
+        body: JSON.stringify({ handle, name, config }),
+    });
 }

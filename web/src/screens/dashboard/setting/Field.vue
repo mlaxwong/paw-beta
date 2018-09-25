@@ -1,7 +1,10 @@
 <template>
     <div class="page-dashboard-setting-field">
         <form @submit.prevent="handleSubmit">
-            <button>Test</button>
+            <input type="text" name="handle" v-model="handle" />
+            <input type="text" name="name" v-model="name" />
+            <input type="text" name="config" v-model="config" />
+            <button>Create</button>
         </form>
     </div>
 </template>
@@ -10,11 +13,19 @@
 import { mapState, mapActions } from 'vuex'
 
 export default {
+    data() {
+        return {
+            handle: '',
+            name: '',
+            config: '',
+        }
+    },
     name: 'Field',
     methods: {
-        ...mapActions('field', ['getAll']),
+        ...mapActions('field', ['create']),
         handleSubmit(e) {
-            this.getAll();
+            const {handle, name, config} = this;
+            this.create({handle, name, config});
         },
     }
 }

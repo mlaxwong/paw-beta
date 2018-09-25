@@ -64,7 +64,7 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
             "process.env": JSON.stringify(dotenv.parsed),
-            config: JSON.stringify(config)
+            globalConfig: JSON.stringify(config)
         }),
         new HtmlWebpackPlugin({
             filename: 'index.html',
