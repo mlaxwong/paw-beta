@@ -9,23 +9,30 @@ Vue.use(Vuex);
 
 let store;
 
-const initStore = () =>  {
-    return store || (store = new Vuex.Store({
-        modules: {
-            auth,
-            nav,
-            field,
-            counter,
-        }
-    }))
-}
-export default initStore
+const modules = {
+    auth,
+    nav,
+    field,
+    counter,
+};
 
-// export default new Vuex.Store({
-//     modules: {
-//         auth,
-//         nav,
-//         field,
-//         counter,
-//     }
-// })
+const mutations = {
+    _init(state) {
+        for (const key in Object.keys(this._mutations)) {
+            const mutation = Object.keys(this._mutations)[key];
+            if (mutation.match(/[a-z]+\/\_init/)) this.commit(mutation);
+        }
+    }
+}
+
+const config = {
+    modules,
+    mutations,
+};
+
+if (!store) {
+    store = new Vuex.Store(config);
+    store.commit('_init');
+}
+
+export default store;

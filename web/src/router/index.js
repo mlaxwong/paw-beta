@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import publicRoute from './public'
 import authRoute from './auth'
 import dashboardRoute from './dashboard'
+import store from '@/store'
 
 Vue.use(Router);
 
@@ -20,7 +21,10 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
 	const metaRules = to.meta.rules;
 	const rules = metaRules ? metaRules : 'authed';
-	const loggedIn = localStorage.getItem('user');
+	// const loggedIn = localStorage.getItem('user');
+	// store.commit('_init');
+	const authStore = store.state.auth;
+	const loggedIn = authStore.user;
 
 	const loginPath = '/login';
 	const dashboardPath = '/dashboard';

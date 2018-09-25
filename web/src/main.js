@@ -12,6 +12,6 @@ new Vue({
     components: { App },
     template: '<App />',
     beforeCreate() {
-        this.$store.commit('auth/init');
+        // this.$store.commit('_init');
 	}
 });

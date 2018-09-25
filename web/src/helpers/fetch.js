@@ -10,8 +10,8 @@ export default ({
     body = null,
     options = {},
 }) => { 
-    // console.log(store());
-    store().state.counter.counter += 1;
+    // console.log(store);
+    store.state.counter.counter += 1;
 
     headers = getHeaders(headers, auth);
     return fetch(url, {
@@ -30,7 +30,7 @@ function getHeaders(headers = null, auth = false)
         return headers;
     } else {
         if (auth) {
-            const user = store().state.auth.user;
+            const user = store.state.auth.user;
             const token = user.token;
             headers.set('Authorization', 'Bearer ' + token);
         }

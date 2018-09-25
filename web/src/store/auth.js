@@ -25,7 +25,7 @@ const actions = {
 };
 
 const mutations = {
-    init(state) {
+    _init(state) {
         if (localStorage.getItem('user') && state.user == null) {
             state.user = JSON.parse(localStorage.getItem('user'));
         }
