@@ -20,6 +20,6 @@ function create(handle, name, config = {}) {
         url: globalConfig.constant.API_FIELD,
         method: 'POST',
         auth: true,
-        body: JSON.stringify({ handle, name, config }),
+        body: JSON.stringify({ handle, name, config, config_class: 'testing' }),
     });
 }
