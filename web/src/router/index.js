@@ -21,8 +21,6 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
 	const metaRules = to.meta.rules;
 	const rules = metaRules ? metaRules : 'authed';
-	// const loggedIn = localStorage.getItem('user');
-	// store.commit('_init');
 	const authStore = store.state.auth;
 	const loggedIn = authStore.user;
 

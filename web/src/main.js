@@ -11,7 +11,4 @@ new Vue({
     i18n,
     components: { App },
     template: '<App />',
-    beforeCreate() {
-        // this.$store.commit('_init');
-	}
 });

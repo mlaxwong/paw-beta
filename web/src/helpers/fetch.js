@@ -11,8 +11,6 @@ export default ({
     options = {},
 }) => { 
     // console.log(store);
-    store.state.counter.counter += 1;
-
     headers = getHeaders(headers, auth);
     return fetch(url, {
         method,

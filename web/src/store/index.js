@@ -3,7 +3,6 @@ import Vuex from 'vuex'
 import auth from './auth'
 import nav from './nav'
 import field from './field'
-import counter from './counter'
 
 Vue.use(Vuex);
 
@@ -13,7 +12,6 @@ const modules = {
     auth,
     nav,
     field,
-    counter,
 };
 
 const mutations = {

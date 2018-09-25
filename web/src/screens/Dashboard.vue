@@ -1,7 +1,6 @@
 <template>
     <div class="global-container">
         <div class="global-sidebar">
-            <div>{{ counter.counter }}</div>
             <div>{{ auth.token }}</div>
             <div>{{ user }}</div>
             <a href="#" @click.prevent="handleClickLogout">Logout</a>
@@ -31,7 +30,6 @@ import '@/assets/scss/style.scss';
 export default {
     name: 'Dashboard',
     computed: {
-        counter() { return this.$store.state.counter },
         user() { return this.$store.getters.getUser },
         auth() { return this.$store.state.auth },
         nav() { return this.$store.state.nav },
