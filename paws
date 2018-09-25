@@ -1,0 +1,16 @@
+#!/usr/bin/env php
+<?php
+define('PATH_BASE', __DIR__);
+define('PATH_CONFIG', PATH_BASE . DIRECTORY_SEPARATOR . 'console' . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'config');
+define('PATH_VENDOR', PATH_BASE . DIRECTORY_SEPARATOR . 'vendor');
+
+// Load Composer's autoloader
+require PATH_VENDOR . DIRECTORY_SEPARATOR . 'autoload.php';
+
+// Load dotenv
+if (file_exists(PATH_BASE. DIRECTORY_SEPARATOR . '.env'))  (new Dotenv\Dotenv(PATH_BASE))->load();
+
+// Run appication
+$app = require_once PATH_VENDOR . '/mlaxwong/paws/bootstrap/console.php';
+$app->setVendorPath(PATH_VENDOR);
+$app->run();

@@ -1,5 +1,6 @@
 <?php 
 define('PATH_BASE', dirname(__DIR__, 2));
+define('PATH_CONFIG', PATH_BASE . 'api' . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'config');
 define('PATH_VENDOR', PATH_BASE . DIRECTORY_SEPARATOR . 'vendor');
 
 // Load Composer's autoloader

@@ -26,6 +26,7 @@
         "php": ">=7.1.0",
         "yiisoft/yii2": "^2.0.15",
         "mlaxwong/paws": "@dev",
-        "vlucas/phpdotenv": "^2.5"
+        "vlucas/phpdotenv": "^2.5",
+        "yiicod/yii2-socketio": "^1.2"
     }
 }
