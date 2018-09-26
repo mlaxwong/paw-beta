@@ -10,9 +10,6 @@ function getAll() {
         url: globalConfig.constant.API_FIELD,
         auth: true,
     });
-        // globalConfig.constant.API_FIELD, requestOptions)
-        // .then(handleResponse)
-        // .then(fields =>  fields);
 }
 
 function create(handle, name, config = {}) {

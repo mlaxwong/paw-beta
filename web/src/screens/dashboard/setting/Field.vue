@@ -1,11 +1,19 @@
 <template>
     <div class="page-dashboard-setting-field">
-        <form @submit.prevent="handleSubmit">
-            <input type="text" name="handle" v-model="handle" />
-            <input type="text" name="name" v-model="name" />
-            <input type="text" name="config" v-model="config" />
-            <button>Create</button>
-        </form>
+        <table v-if="fields">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="field in fields" :key="field.id">
+                    <td>{{ field.id }}</td>
+                    <td>{{ field.name }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </template>
 
@@ -13,20 +21,15 @@
 import { mapState, mapActions } from 'vuex'
 
 export default {
-    data() {
-        return {
-            handle: '',
-            name: '',
-            config: '',
-        }
-    },
     name: 'Field',
+    mounted() {
+        this.getAll();
+    },
+    computed: {
+        ...mapState('field', ['fields'])
+    },
     methods: {
-        ...mapActions('field', ['create']),
-        handleSubmit(e) {
-            const {handle, name, config} = this;
-            this.create({handle, name, config});
-        },
+        ...mapActions('field', ['getAll']),
     }
 }
 </script>
