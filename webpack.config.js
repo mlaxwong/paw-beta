@@ -64,7 +64,8 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
             "process.env": JSON.stringify(dotenv.parsed),
-            globalConfig: JSON.stringify(config)
+            globalConfig: JSON.stringify(config),
+            paws: 'new (require(\'' + path.resolve(__dirname, './web/src/lib/paws') + '\'))',
         }),
         new HtmlWebpackPlugin({
             filename: 'index.html',

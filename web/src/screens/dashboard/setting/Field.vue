@@ -19,10 +19,16 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import Paws from '@/lib/paws'
 
 export default {
     name: 'Field',
     mounted() {
+        const paws = new Paws({
+            url: process.env.URL_API,
+            auth: this.$store.state.auth.token,
+        });
+        paws.Field.all().then(res => console.log(res));
         this.getAll();
     },
     computed: {
