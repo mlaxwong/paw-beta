@@ -1,9 +1,9 @@
 <template>
     <div class="global-container">
         <div class="global-sidebar">
-            <div>{{ auth.token }}</div>
-            <div>{{ user }}</div>
-            <a href="#" @click.prevent="handleClickLogout">Logout</a>
+            <div>
+                <a href="#" @click.prevent="handleClickLogout">Logout</a>
+            </div>
             <nav>
                 <TreeMenu :items="nav.items"/>
             </nav>
@@ -11,6 +11,7 @@
         <div class="main-container">
             <div class="top-main">
                 <Crumbs />
+                <h1>{{ dom.title }}</h1>
             </div>
             <main>
                 <header></header>
@@ -30,6 +31,7 @@ import '@/assets/scss/style.scss';
 export default {
     name: 'Dashboard',
     computed: {
+        dom() { return this.$store.state.dom },
         user() { return this.$store.getters.getUser },
         auth() { return this.$store.state.auth },
         nav() { return this.$store.state.nav },
@@ -60,10 +62,11 @@ $sidebar-width: 225px;
 
     .global-sidebar
     {
-        background-color: #ddd;
+        background-color: #333f4d;
         height: 100vh;
         width: $sidebar-width;
         display: flex;
+        flex-direction: column;
     }
 
     .main-container
@@ -76,10 +79,13 @@ $sidebar-width: 225px;
 
         .top-main
         {
+            padding: 7px 24px;
+            border-bottom: 1px solid #ddd;
         }
 
         main 
         {
+            padding: 7px 24px;
         }
     }
 }

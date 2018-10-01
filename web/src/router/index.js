@@ -19,10 +19,14 @@ const router = new Router({
 });
 
 router.beforeEach((to, from, next) => {
+	const pageTitle = to.meta.title;
 	const metaRules = to.meta.rules;
 	const rules = metaRules ? metaRules : 'authed';
+	const domStore = store.state.dom;
 	const authStore = store.state.auth;
 	const loggedIn = authStore.user;
+
+	domStore.title = pageTitle;
 
 	const loginPath = '/login';
 	const dashboardPath = '/dashboard';

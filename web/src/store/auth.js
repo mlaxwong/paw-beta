@@ -44,6 +44,7 @@ const mutations = {
     },
     logout() {
         localStorage.removeItem('user');
+        state.user = null;
     }
 };
 

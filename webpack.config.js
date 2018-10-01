@@ -32,14 +32,18 @@ module.exports = {
                             presets: ['es2015', 'stage-2']
                         }
                     }
-                ] 
+                ],
+                include: [ 
+                    path.resolve(__dirname, 'web/src'),
+                    require.resolve('bootstrap-vue'),
+                ],
             },
             {
                 test: /\.vue$/,
                 use: ['vue-loader'],
             },
             {
-                test: /\.scss$/,
+                test: /\.(scss|css)$/,
                 use: [
                     MiniCssExtractPlugin.loader,
                     'css-loader', 

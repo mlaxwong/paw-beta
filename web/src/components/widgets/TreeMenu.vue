@@ -31,7 +31,39 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-ul > li:not(.open) > ul {
-    display: none;
+ul 
+{
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+
+    li
+    {
+        display: block;
+
+        a
+        {
+            color: #d7d9db;
+            display: block;
+            padding: 7px 14px 7px 24px;
+
+            &.router-link-exact-active
+            {
+                color: #fff;
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+        }
+    }
+
+    & > li > ul 
+    {
+        padding-left: 10px;
+        font-size: .8em;
+    }
+
+    & > li:not(.open) > ul 
+    {
+        display: none;
+    }
 }
 </style>

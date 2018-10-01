@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import auth from './auth'
+import dom from './dom'
 import nav from './nav'
 import field from './field'
 
@@ -10,6 +11,7 @@ let store;
 
 const modules = {
     auth,
+    dom,
     nav,
     field,
 };

@@ -13,6 +13,9 @@ export default [
                 path: '',
                 name: 'Dashboard',
                 component: Dashboard,
+                meta: {
+                    title: 'Dashboard',
+                }
             },
             {
                 path: 'setting',
