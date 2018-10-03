@@ -1,21 +1,30 @@
 <template>
     <div class="global-container">
         <div class="global-sidebar">
-            <div>
-                <a href="#" @click.prevent="handleClickLogout">Logout</a>
-            </div>
             <nav>
                 <TreeMenu :items="nav.items"/>
+                <ul>
+                    <li>
+                        <a href="#" @click.prevent="handleClickLogout">Logout</a>
+                    </li>
+                </ul>
             </nav>
         </div>
         <div class="main-container">
             <div class="top-main">
                 <Crumbs />
-                <h1>{{ dom.title }}</h1>
+                <h1 class="float-left">
+                    {{ dom.title }}
+                </h1>
+                <div class="float-right">
+
+                </div>
             </div>
             <main>
                 <header></header>
-                <router-view/>
+                <transition name="fade" mode="out-in">
+                    <router-view/>
+                </transition>
             </main>
         </div>
     </div>
@@ -71,6 +80,7 @@ $sidebar-width: 225px;
 
     .main-container
     {
+        // background-color: #f1f5f8;
         display: flex;
         flex: 1 0 0;
         -webkit-box-flex: 1;

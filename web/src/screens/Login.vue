@@ -4,7 +4,7 @@
             <b-row>
                 <b-col md="4" offset-md="4" sm="12">
                     <b-form @submit.prevent="handleSubmit">
-                        <b-form-group>
+                        <b-form-group class="form-label-group">
                             <b-form-input type="text" name="username" placeholder="Username" v-model="username" />
                         </b-form-group>
                         <b-form-group>

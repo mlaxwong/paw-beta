@@ -48,3 +48,22 @@ h6 {
     -ms-transform: translate(-50%, -50%);
     -o-transform: translate(-50%, -50%);
 }
+
+.form-control, .btn, .modal-header, .modal-footer , .modal-content
+{
+    border-radius: 0;
+}
+
+.form-control 
+{
+    font-size: 14px;
+    padding: 5px 7px;
+}
+
+.b-form-group.form-group
+{
+    label, legend {
+        font-size: .8em;
+        line-height: 1;
+    }
+}

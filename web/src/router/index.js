@@ -4,6 +4,7 @@ import publicRoute from './public'
 import authRoute from './auth'
 import dashboardRoute from './dashboard'
 import store from '@/store'
+import Dashboard from './Dashboard'
 
 Vue.use(Router);
 
@@ -26,7 +27,7 @@ router.beforeEach((to, from, next) => {
 	const authStore = store.state.auth;
 	const loggedIn = authStore.user;
 
-	domStore.title = pageTitle;
+	domStore.title = pageTitle ? pageTitle : 'Title';
 
 	const loginPath = '/login';
 	const dashboardPath = '/dashboard';
