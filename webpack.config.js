@@ -81,5 +81,6 @@ module.exports = {
             chunkFilename: "[id].css"
         }),
         new VueLoaderPlugin(),
-    ]
+    ],
+    node: { fs: 'empty' },
 };

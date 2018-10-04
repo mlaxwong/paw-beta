@@ -37,6 +37,8 @@ import Crumbs from '@/components/widgets/Crumbs';
 import TreeMenu from '@/components/widgets/TreeMenu';
 import '@/assets/scss/style.scss';
 
+console.log(globalConfig);
+
 export default {
     name: 'Dashboard',
     computed: {
