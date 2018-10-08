@@ -7,9 +7,11 @@ import BootstrapVue from 'bootstrap-vue'
 import VueFloatLabel from "vue-float-label";
 import 'vue-awesome/icons'
 import FontAwesome from 'vue-awesome/components/Icon'
+import Vuebar from 'vuebar';
 
 Vue.use(BootstrapVue);
 Vue.use(VueFloatLabel);
+Vue.use(Vuebar);
 
 Vue.component('fa', FontAwesome)
 

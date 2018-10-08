@@ -124,6 +124,7 @@ $sidebar-width: 225px;
         main 
         {
             padding: 7px 24px;
+            overflow: auto;
         }
     }
 }

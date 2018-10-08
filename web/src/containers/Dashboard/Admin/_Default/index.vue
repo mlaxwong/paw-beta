@@ -1,6 +1,6 @@
 <template>
     <div>
-        <router-link to="/dashboard/customer/create">Create</router-link>
+        <router-link to="/dashboard/admin/create">Create</router-link>
     </div>
 </template>
 
