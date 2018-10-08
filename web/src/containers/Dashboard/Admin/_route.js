@@ -3,7 +3,7 @@ import defaultRoute from './_Default/_route'
 import createRoute from './Create/_route'
 
 export default {
-    path: 'service',
+    path: 'admin',
     component: Layout,
     children: [
         defaultRoute,

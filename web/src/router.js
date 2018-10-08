@@ -5,8 +5,6 @@ import routes from './containers/_route';
 
 Vue.use(Router);
 
-// console.log(import('./Dashboard'));
-
 const router = new Router({
 	// hashbang: false,
 	base: process.env.PATH_VUE_PUBLIC,
