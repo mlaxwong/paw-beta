@@ -1,5 +1,7 @@
 <template>
-    <div>this is home</div>
+    <div>
+        <router-link to="/dashboard">GO TO CONSOLE</router-link>
+    </div>
 </template>
 
 <script>
