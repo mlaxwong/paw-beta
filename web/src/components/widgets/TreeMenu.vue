@@ -50,7 +50,12 @@ ul
             &.router-link-exact-active
             {
                 color: #fff;
-                background-color: rgba(255, 255, 255, 0.1);
+                background-color: rgba(22, 3, 3, 0.1);
+                transition: all 0.5s;
+                -webkit-transition: all 0.5s;
+                -moz-transition: all 0.5s;
+                -ms-transition: all 0.5s;
+                -o-transition: all 0.5s;
             }
         }
     }

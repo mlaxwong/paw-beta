@@ -1,13 +1,13 @@
 <template>
     <div class="global-container">
         <div class="global-sidebar">
+            <div class="profile">
+                <b-dropdown class="quick-menu" :text="fullName" right>
+                    <b-dropdown-item @click.prevent="handleClickLogout">Logout</b-dropdown-item>
+                </b-dropdown>
+            </div>
             <nav>
                 <TreeMenu :items="nav.items"/>
-                <ul>
-                    <li>
-                        <a href="#" @click.prevent="handleClickLogout">Logout</a>
-                    </li>
-                </ul>
             </nav>
         </div>
         <div class="main-container">
@@ -40,6 +40,10 @@ import '@/assets/scss/style.scss';
 export default {
     name: 'Dashboard',
     computed: {
+        fullName() {
+            return 'USERNAME';
+        },
+ 
         dom() { return this.$store.state.dom },
         user() { return this.$store.getters.getUser },
         auth() { return this.$store.state.auth },
@@ -56,7 +60,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $sidebar-width: 225px;
 
 .global-container
@@ -76,6 +80,30 @@ $sidebar-width: 225px;
         width: $sidebar-width;
         display: flex;
         flex-direction: column;
+        
+        .profile {
+            border-bottom: 1px solid #666;
+
+            .quick-menu {
+                width: 100%;
+
+                button.dropdown-toggle {
+                    text-align: left;
+                    font-size: 0.8em;
+                    width: 100%;
+                    padding: 15px 14px 15px 24px;
+                }
+
+                .btn-secondary:focus, .btn-secondary.focus {
+                    box-shadow: none;
+                }
+
+                .dropdown-menu {
+                    font-size: .8em;
+                    padding: 0px;
+                }
+            } 
+        }
     }
 
     .main-container
