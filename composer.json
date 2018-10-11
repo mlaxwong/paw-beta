@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "paws\\api\\": "api/src/"
+            "paws\\rest\\": "api/src/"
         }
     },
     "repositories": [

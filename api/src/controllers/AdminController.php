@@ -1,10 +1,10 @@
 <?php
-namespace paws\api\controllers;
+namespace paws\rest\controllers;
 
 use yii\rest\ActiveController;
 use Paws;
-use paws\api\records\Admin;
-use paws\api\records\AdminSearch;
+use paws\rest\records\Admin;
+use paws\rest\records\AdminSearch;
 
 class AdminController extends ActiveController
 {

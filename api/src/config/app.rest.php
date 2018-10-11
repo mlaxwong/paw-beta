@@ -1,8 +1,8 @@
 <?php
 return [
-    'controllerNamespace' => 'paws\\api\\controllers',
+    'controllerNamespace' => 'paws\\rest\\controllers',
     'aliases' => [
-        '@pawsbeta' => PATH_BASE . '/api/src',
+        '@pawsbeta' => PATH_BASE . '/rest/src',
     ],
     'components' => [
         // 'errorHandler' => [

@@ -1,5 +1,5 @@
 <?php
-namespace paws\api\models;
+namespace paws\rest\models;
 
 use yii\data\ActiveDataProvider;
 use paws\records\User;
