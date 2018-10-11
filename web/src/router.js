@@ -18,7 +18,7 @@ router.beforeEach((to, from, next) => {
 	const rules = metaRules ? metaRules : 'authed';
 	const domStore = store.state.dom;
 	const authStore = store.state.auth;
-	const loggedIn = authStore.user;
+	const loggedIn = authStore.token;
 
 	domStore.title = pageTitle ? pageTitle : 'Title';
 

@@ -1,8 +1,8 @@
 <template>
     <div class="global-container">
-        <div class="global-sidebar">
+        <div class="global-sidebar" :class="{'show': showGlobalSidebar}">
             <div class="profile">
-                <b-dropdown class="quick-menu" :text="fullName" right>
+                <b-dropdown class="quick-menu" :text="identity.username" right>
                     <b-dropdown-item @click.prevent="handleClickLogout">Logout</b-dropdown-item>
                 </b-dropdown>
             </div>
@@ -19,6 +19,7 @@
                 <div class="float-right">
 
                 </div>
+                <button class="global-sidebar-toggle" :class="{'show': showGlobalSidebar}" @click.prevent="handleClickToggleGlobalSidebar"><fa name="bars" /></button>
             </div>
             <main>
                 <header></header>
@@ -39,11 +40,16 @@ import '@/assets/scss/style.scss';
 
 export default {
     name: 'Dashboard',
+    data() {
+        return {
+            showGlobalSidebar: false,
+        }
+    },
+    mounted() {
+        this.getIdentity();
+    },
     computed: {
-        fullName() {
-            return 'USERNAME';
-        },
- 
+        ...mapState('auth', ['identity']),
         dom() { return this.$store.state.dom },
         user() { return this.$store.getters.getUser },
         auth() { return this.$store.state.auth },
@@ -51,9 +57,14 @@ export default {
     },
     methods: {
         ...mapActions('auth', ['logout']),
+        ...mapActions('auth', ['getIdentity']),
+        ...mapActions('user', ['getOne']),
         handleClickLogout(e) {
             this.logout();
             router.push('/login');
+        },
+        handleClickToggleGlobalSidebar(e) {
+            this.showGlobalSidebar = !this.showGlobalSidebar;
         }
     },
     components: { Crumbs, TreeMenu }
@@ -61,6 +72,9 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../assets/scss/mixin/breakpoint';
+@import '../../assets/scss/mixin/prefix';
+
 $sidebar-width: 225px;
 
 .global-container
@@ -75,11 +89,25 @@ $sidebar-width: 225px;
 
     .global-sidebar
     {
-        background-color: #333f4d;
+        background-color: rgba(51, 63, 77, 1);
         height: 100vh;
         width: $sidebar-width;
         display: flex;
         flex-direction: column;
+        position: relative;
+        left: 0%;
+        z-index: 9;
+        @include prefix(transition, left 0.5s);
+
+        @include breakpoint(sm) {
+            position: fixed;
+            left: -100%;
+            background-color: rgba(51, 63, 77, .85);
+        }
+
+        &.show {
+            left: 0%;
+        }
         
         .profile {
             border-bottom: 1px solid #666;
@@ -119,6 +147,33 @@ $sidebar-width: 225px;
         {
             padding: 7px 24px;
             border-bottom: 1px solid #ddd;
+            position: relative;
+
+            @include breakpoint(sm) {
+                padding-left: 50px;
+            }
+
+            button.global-sidebar-toggle
+            {
+                background-color: #fff;
+                padding: 0px 10px;
+                border: 0;
+                border-right: 1px solid #ddd;
+                position: absolute;
+                left: -100%;
+                top: 0px;
+                bottom: 0px;
+                outline: 0;
+                cursor: pointer;
+                @include prefix(transition, all 0.3s ease-out);
+                @include breakpoint(sm) {
+                    left: 0%;
+                }
+
+                &.show{
+                    padding-left: $sidebar-width + 10px;
+                }
+            }
         }
 
         main 

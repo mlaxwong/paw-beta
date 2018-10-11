@@ -1,5 +1,5 @@
-import user from './user.service';
-import field from './field.service';
+import user from './_user.service';
+import field from './_field.service';
 
 export default {
     user,

@@ -4,6 +4,7 @@ import auth from './auth'
 import dom from './dom'
 import nav from './nav'
 import field from './field'
+import user from './user'
 
 Vue.use(Vuex);
 
@@ -14,6 +15,7 @@ const modules = {
     dom,
     nav,
     field,
+    user,
 };
 
 const mutations = {

@@ -42,9 +42,7 @@ ul.crumbs {
 
     li {
         display: inline;
-        a {
-            
-        }
+        cursor: pointer;
     }
 
     li + li:before {
