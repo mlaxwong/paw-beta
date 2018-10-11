@@ -1,4 +1,5 @@
 import services from '@/services'
+import router from '@/router'
 
 const state = {
     inited: false,
@@ -20,7 +21,7 @@ const actions = {
                 },
                 error => {
                     commit('loginFailure', error);
-                    return error;
+                    return Promise.reject(error);
                 }
             );
     },
@@ -41,9 +42,16 @@ const mutations = {
             if (localStorage.getItem(globalConfig.constant.AUTH_TOKEN_KEY) && state.token == null) {
                 state.token = JSON.parse(localStorage.getItem(globalConfig.constant.AUTH_TOKEN_KEY));
             }
+
+            // services.user.getOne(state.token.id).then(identity => {
+            // }, error => {
+            //     console.log(router);
+            // })
         } catch (error) {
+            console.log(error);
             localStorage.removeItem(globalConfig.constant.AUTH_TOKEN_KEY);
         }
+
     },
     loginRequest(state) {
         state.logging = true;

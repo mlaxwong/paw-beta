@@ -41,8 +41,7 @@ function handleResponse(response) {
         const status = json.status
         switch (status) {
             case 401:
-                handle401Response(json);
-                break;
+                return handle401Response(json);
             case 422:
                 return handle422Response(json);
         }
@@ -51,9 +50,9 @@ function handleResponse(response) {
 }
 
 function handle401Response(json) {
-    console.log('here');
     localStorage.removeItem(globalConfig.constant.AUTH_TOKEN_KEY);
     router.push('/login');
+    return Promise.reject(json);
 }
 
 function handle422Response(json) {
