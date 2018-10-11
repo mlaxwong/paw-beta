@@ -1,5 +1,5 @@
 <?php
-namespace paws\rest\records;
+namespace paws\restapp\records;
 
 use paws\records\User;
 

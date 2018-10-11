@@ -1,5 +1,5 @@
 <?php
-namespace paws\rest\controllers;
+namespace paws\restapp\controllers;
 
 use yii\rest\ActiveController;
 use yii\filters\auth\CompositeAuth;
@@ -7,8 +7,8 @@ use yii\filters\auth\HttpBearerAuth;
 use yii\filters\auth\HttpBasicAuth;
 use Paws;
 use paws\records\User;
-use paws\rest\models\RegisterForm;
-use paws\rest\models\UserSearch;
+use paws\restapp\models\RegisterForm;
+use paws\restapp\models\UserSearch;
 
 class UserController extends ActiveController
 {

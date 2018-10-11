@@ -1,5 +1,5 @@
 <?php
-namespace paws\rest\controllers;
+namespace paws\restapp\controllers;
 
 use yii\rest\ActiveController;
 use yii\filters\auth\CompositeAuth;

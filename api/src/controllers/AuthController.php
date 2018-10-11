@@ -1,10 +1,10 @@
 <?php 
-namespace paws\rest\controllers;
+namespace paws\restapp\controllers;
 
 use yii\rest\Controller;
 use Paws;
 use paws\records\User;
-use paws\rest\models\LoginForm;
+use paws\restapp\models\LoginForm;
 
 class AuthController extends Controller
 {

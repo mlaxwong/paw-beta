@@ -1,5 +1,5 @@
 <?php 
-namespace paws\rest\models;
+namespace paws\restapp\models;
 
 use yii\base\Model;
 use paws\records\User;

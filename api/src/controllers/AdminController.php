@@ -1,10 +1,10 @@
 <?php
-namespace paws\rest\controllers;
+namespace paws\restapp\controllers;
 
 use yii\rest\ActiveController;
 use Paws;
-use paws\rest\records\Admin;
-use paws\rest\records\AdminSearch;
+use paws\restapp\records\Admin;
+use paws\restapp\records\AdminSearch;
 
 class AdminController extends ActiveController
 {
@@ -21,6 +21,5 @@ class AdminController extends ActiveController
     {
         $searchModel = new AdminSearch;
         return $searchModel->search(Paws::$app->request->getQueryParams);
-
     }
 }

@@ -1,8 +1,8 @@
 <?php
-namespace paws\rest\models;
+namespace paws\restapp\models;
 
 use yii\data\ActiveDataProvider;
-use paws\rest\records\Admin;
+use paws\restapp\records\Admin;
 
 class AdminSearch extends Admin
 {
