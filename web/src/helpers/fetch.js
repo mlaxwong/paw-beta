@@ -51,7 +51,8 @@ function handleResponse(response) {
 }
 
 function handle401Response(json) {
-    localStorage.removeItem('user');
+    console.log('here');
+    localStorage.removeItem(globalConfig.constant.AUTH_TOKEN_KEY);
     router.push('/login');
 }
 

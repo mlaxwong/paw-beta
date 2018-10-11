@@ -18,5 +18,6 @@ return [
         ]
     ],
     ['class' => yii\rest\UrlRule::class, 'controller' => 'user'],
+    ['class' => yii\rest\UrlRule::class, 'controller' => 'admin'],
     ['class' => yii\rest\UrlRule::class, 'controller' => 'field'],
 ];

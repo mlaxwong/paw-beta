@@ -37,15 +37,19 @@ const actions = {
 
 const mutations = {
     _init(state) {
-        if (localStorage.getItem('token') && state.token == null) {
-            state.token = JSON.parse(localStorage.getItem('token'));
+        try {
+            if (localStorage.getItem(globalConfig.constant.AUTH_TOKEN_KEY) && state.token == null) {
+                state.token = JSON.parse(localStorage.getItem(globalConfig.constant.AUTH_TOKEN_KEY));
+            }
+        } catch (error) {
+            localStorage.removeItem(globalConfig.constant.AUTH_TOKEN_KEY);
         }
     },
     loginRequest(state) {
         state.logging = true;
     },
     loginSuccess(state, user) {
-        localStorage.setItem('token', JSON.stringify(user));
+        localStorage.setItem(globalConfig.constant.AUTH_TOKEN_KEY, JSON.stringify(user));
         state.logging = false;
         state.token = user;
     },
@@ -54,7 +58,7 @@ const mutations = {
         state.token = null;
     },
     logout() {
-        localStorage.removeItem('token');
+        localStorage.removeItem(globalConfig.constant.AUTH_TOKEN_KEY);
         state.token = null;
     },
     identitySuccess(state, identity) {
