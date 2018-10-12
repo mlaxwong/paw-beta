@@ -9,6 +9,8 @@
 <script>
 import Preloader from '@/components/widgets/Preloader';
 
+const globalPreloaderMessage = document.getElementById('global-preloader-message');
+
 export default {
     name: 'App',
     data() {
@@ -24,16 +26,15 @@ export default {
             return this.preloader;
         }
     },
+    beforeMount() {
+        globalPreloaderMessage.textContent = 'Done';
+    },
     mounted() {
         this.$nextTick(function () {
-            // Code that will run only after the
-            // entire view has been rendered
             setTimeout(() => {
                 const globalPreloader = document.getElementById('global-preloader');
                 globalPreloader.classList.remove('show', 'blackout');
             }, 800);
-
-            // console.log('root mounted');
         })
     },
     components: { Preloader }
