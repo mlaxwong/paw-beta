@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div id="app" style="vislble:hidden">
         <transition name="fade" mode="out-in">
             <router-view/>
         </transition>
@@ -9,6 +9,8 @@
 <script>
 import Preloader from '@/components/widgets/Preloader';
 
+const globalApp = document.getElementById('app');
+const globalPreloader = document.getElementById('global-preloader');
 const globalPreloaderMessage = document.getElementById('global-preloader-message');
 
 export default {
@@ -32,8 +34,9 @@ export default {
     mounted() {
         this.$nextTick(function () {
             setTimeout(() => {
-                const globalPreloader = document.getElementById('global-preloader');
                 globalPreloader.classList.remove('show', 'blackout');
+                globalApp.style.visibility = 'visible';
+                globalApp.style.opacity = 1;
             }, 800);
         })
     },
