@@ -10,6 +10,10 @@ Vue.use(Vuex);
 
 let store;
 
+const state = {
+    loader: ['app.preloader'],
+}
+
 const modules = {
     auth,
     dom,
@@ -24,10 +28,18 @@ const mutations = {
             const mutation = Object.keys(this._mutations)[key];
             if (mutation.match(/[a-z]+\/\_init/)) this.commit(mutation);
         }
+    },
+    addLoader(state, key) {
+        if (!(key in state.loader)) state.loader.push(key);
+    },
+    removeLoader(state, key) {
+        const index = state.loader.indexOf(key); 
+        if (index !== -1) state.loader.splice(index, 1);
     }
 }
 
 const config = {
+    state,
     modules,
     mutations,
 };

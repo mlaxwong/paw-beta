@@ -2,8 +2,7 @@ import services from '@/services'
 import router from '@/router'
 
 const state = {
-    inited: false,
-    logging: false,
+    loading: false,
     token: null,
     identity: {
         id: null,
@@ -54,15 +53,15 @@ const mutations = {
 
     },
     loginRequest(state) {
-        state.logging = true;
+        state.loading = true;
     },
     loginSuccess(state, user) {
         localStorage.setItem(globalConfig.constant.AUTH_TOKEN_KEY, JSON.stringify(user));
-        state.logging = false;
+        state.loading = false;
         state.token = user;
     },
     loginFailure(state, error) {
-        state.logging = false;
+        state.loading = false;
         state.token = null;
     },
     logout() {
