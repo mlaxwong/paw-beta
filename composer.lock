@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f4389ba16b1d8468f883c0fe27295bb3",
+    "content-hash": "fbe527e6dac552bfc3659ff15218dec5",
     "packages": [
         {
             "name": "bower-asset/inputmask",
@@ -275,7 +275,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../packages/mlaxwong/paws",
-                "reference": "c67ecf766fba45661b85bfcc837730b574775741",
+                "reference": "258732af87f631a9075eb14131ec4d4025f52311",
                 "shasum": null
             },
             "require": {
@@ -614,7 +614,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.1.0"
+        "php": ">=5.4.0"
     },
     "platform-dev": []
 }
