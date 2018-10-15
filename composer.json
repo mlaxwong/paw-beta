@@ -27,5 +27,13 @@
         "yiisoft/yii2": "^2.0.15",
         "mlaxwong/paws": "@dev",
         "vlucas/phpdotenv": "^2.5"
+    },
+    "scripts": {
+        "deploy" : [
+            "git checkout -b temp",
+            "composer remove mlaxwong/paws",
+            "composer require mlaxwong/paws \"dev-develop\"",
+            "rm -rf ./dist/.git"
+        ]
     }
 }
