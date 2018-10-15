@@ -32,8 +32,7 @@
         "deploy" : [
             "git checkout -b temp",
             "composer remove mlaxwong/paws",
-            "composer require mlaxwong/paws \"dev-develop\"",
-            "rm -rf ./dist/.git"
+            "composer require mlaxwong/paws \"dev-develop\""
         ]
     }
 }
