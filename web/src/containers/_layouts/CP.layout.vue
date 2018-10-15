@@ -1,6 +1,6 @@
 <template>
     <div class="global-container">
-        <div class="global-sidebar" :class="{'show': showGlobalSidebar}">
+        <div class="global-sidebar" :class="{'show': showGlobalSidebar}" v-click-outside="handleClickOutsideSidebar">
             <div class="profile">
                 <b-dropdown class="quick-menu" :text="identity.username" right>
                     <b-dropdown-item @click.prevent="handleClickLogout">Logout</b-dropdown-item>
@@ -19,7 +19,7 @@
                 <div class="float-right">
 
                 </div>
-                <button class="global-sidebar-toggle" :class="{'show': showGlobalSidebar}" @click.prevent="handleClickToggleGlobalSidebar"><fa name="bars" /></button>
+                <button class="global-sidebar-toggle a-part-of-global-sidebar" :class="{'show': showGlobalSidebar}" @click.prevent="handleClickToggleGlobalSidebar"><fa name="bars" class="a-part-of-global-sidebar" /></button>
             </div>
             <main>
                 <header>{{ loader }}</header>
@@ -33,6 +33,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import ClickOutside from 'vue-click-outside'
 import router from '@/router'
 import Crumbs from '@/components/widgets/Crumbs';
 import TreeMenu from '@/components/widgets/TreeMenu';
@@ -47,13 +48,12 @@ export default {
     },
     mounted() {
         this.getIdentity();
-        
-        console.log('layout mounted');
     },
+    
     computed: {
         ...mapState('auth', ['identity']),
         loader() {
-            return JSON.stringify(this.$store.state.loader);
+            return JSON.stringify(this.$store.state.bloader);
         },
         dom() { return this.$store.state.dom },
         user() { return this.$store.getters.getUser },
@@ -70,9 +70,15 @@ export default {
         },
         handleClickToggleGlobalSidebar(e) {
             this.showGlobalSidebar = !this.showGlobalSidebar;
-        }
+        },
+        handleClickOutsideSidebar(e) {
+            if (!event.target.classList.contains('a-part-of-global-sidebar')) this.showGlobalSidebar = false;
+        },
     },
-    components: { Crumbs, TreeMenu }
+    components: { Crumbs, TreeMenu },
+    directives: {
+        ClickOutside
+    }
 }
 </script>
 
@@ -177,6 +183,10 @@ $sidebar-width: 225px;
 
                 &.show{
                     padding-left: $sidebar-width + 10px;
+                }
+
+                svg {
+                    pointer-events: none;
                 }
             }
         }

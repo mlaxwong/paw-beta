@@ -11,7 +11,8 @@ Vue.use(Vuex);
 let store;
 
 const state = {
-    loader: ['app.preloader'],
+    loader: [],
+    bloader: [],
 }
 
 const modules = {
@@ -28,6 +29,13 @@ const mutations = {
             const mutation = Object.keys(this._mutations)[key];
             if (mutation.match(/[a-z]+\/\_init/)) this.commit(mutation);
         }
+    },
+    addBLoader(state, key) {
+        if (!(key in state.bloader)) state.bloader.push(key);
+    },
+    removeBLoader(state, key) {
+        const index = state.bloader.indexOf(key); 
+        if (index !== -1) state.bloader.splice(index, 1);
     },
     addLoader(state, key) {
         if (!(key in state.loader)) state.loader.push(key);

@@ -53,7 +53,6 @@ export default {
             });
         },
         clickHandleRemoveService(index) {
-            console.log(index);
             this.services.splice(index, 1);
         }
     }

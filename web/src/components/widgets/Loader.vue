@@ -1,5 +1,5 @@
 <template>
-    <div class="preloader" :class="{'show': this.isShow, 'blackout': this.isBlackOut}">
+    <div class="loader" :class="{'show': this.isShow, 'blackout': this.isBlackOut}">
         <div class="spinner">
             <div class="rect1"></div>
             <div class="rect2"></div>
@@ -34,7 +34,7 @@ export default {
 </script>
 
 <style>
-.preloader {
+.loader {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.2);
     top: 0px;
@@ -48,12 +48,12 @@ export default {
     transition: visibility 0.5s, opacity 0.5s linear, background-color 0.5s linear;
 }
 
-.preloader.show {
+.loader.show {
   visibility: visible;
   opacity: 1;
 }
 
-.preloader.show.blackout {
+.loader.show.blackout {
   background-color: rgba(238, 238, 238, 1);
 }
 

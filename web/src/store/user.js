@@ -6,11 +6,11 @@ const state = {
 
 const actions = {
     getAll({ commit }) {
-        commit('addLoader', 'vuex.user.getall', { root: true });
+        commit('addBLoader', 'vuex.user.getall', { root: true });
         return services.user.getAll()
             .then(users => {
                 commit('getAllSuccess', users);
-                commit('removeLoader', 'vuex.user.getall', { root: true });
+                commit('removeBLoader', 'vuex.user.getall', { root: true });
                 return users;
             });
     },
