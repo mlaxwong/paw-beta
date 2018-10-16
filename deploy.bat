@@ -15,11 +15,12 @@ rem variables
 set DIR=%~dp0
 set DEPLOY_BRANCH=deploy-branch-runtime
 set DEPLOY_RUNTIME_DIR=deploy-rumtime
+set DEPLOY_REMOTE=inspirennet-prod
 set COMPOSER_PAWS=mlaxwong/paws
 set COMPOSER_PAWS_VERSION=dev-develop
 
 rem deploy branch
-REM call git checkout -b %DEPLOY_BRANCH%
+call git checkout -b %DEPLOY_BRANCH%
 
 rem create deploy runtime dirs
 if not exist %DEPLOY_RUNTIME_DIR% mkdir %DEPLOY_RUNTIME_DIR%
@@ -33,18 +34,27 @@ rem building deploy environment
 move dist %DEPLOY_RUNTIME_DIR%\dist
 move .env .local.env
 move .server.env .env
-REM call composer remove %COMPOSER_PAWS%
-REM call composer require %COMPOSER_PAWS% "%COMPOSER_PAWS_VERSION%"
+call composer remove %COMPOSER_PAWS%
+call composer require %COMPOSER_PAWS% "%COMPOSER_PAWS_VERSION%"
 
 rem build
 call yarn build:prod
 move %DEPLOY_RUNTIME_DIR%\dist\api dist\api
 
+rem deploy
+call git add .
+call git commit -m "deploy"
+call git push %DEPLOY_REMOTE% %DEPLOY_BRANCH%:master
+
 rem restore envs
 move .env .server.env
 move .local.env .env
 
-rem remove deploy cache
-REM rmdir %DEPLOY_RUNTIME_DIR% /S /Q
+rem restore git
+call git checkout master
+call git branch -D %DEPLOY_BRANCH%
+
+rem remove deploy runtime files
+rmdir %DEPLOY_RUNTIME_DIR% /S /Q
 
 @endlocal
