@@ -7,6 +7,7 @@ use yii\web\HttpException;
 use Paws;
 use paws\records\User;
 use paws\restapp\models\LoginForm;
+use paws\restapp\rbac\Role;
 
 class AuthController extends Controller
 {
@@ -24,7 +25,7 @@ class AuthController extends Controller
         $model->load(Paws::$app->request->getBodyParams(), '');
         if ($user = $model->submit()) {
             Paws::$app->user->login($user);
-            if (Paws::$app->user->can('admin')) {
+            if (Paws::$app->user->can(Role::ROLE_ADMIN)) {
                 return [
                     'id' => $user->id,
                     'token' => $user->auth_key,

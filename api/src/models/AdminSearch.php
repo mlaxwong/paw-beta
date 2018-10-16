@@ -2,9 +2,10 @@
 namespace paws\restapp\models;
 
 use yii\data\ActiveDataProvider;
-use paws\restapp\records\Admin;
+use paws\restapp\records\User;
+use paws\restapp\rbac\Role;
 
-class AdminSearch extends Admin
+class AdminSearch extends User
 {
     public $username;
 
@@ -17,7 +18,11 @@ class AdminSearch extends Admin
 
     public function search($params = [])
     {
-        $query = Admin::find();
+        $query = User::find()
+            ->alias('u')
+            ->joinWith('authItems ai')
+            ->andWhere(['ai.name' => Role::ROLE_ADMIN]);
+
         $dataProvider = new ActiveDataProvider(compact('query'));
         $this->load($params, '');
         

@@ -3,7 +3,7 @@ namespace paws\restapp\models;
 
 use yii\base\Model;
 use Paws;
-use paws\restapp\records\Admin;
+use paws\restapp\records\User;
 
 class AdminForm extends Model
 {
@@ -19,7 +19,7 @@ class AdminForm extends Model
     {
         return [
             [['username', 'email', 'password', 'confirmPassword'], 'required'], 
-            [['username', 'email'], 'unique', 'targetClass' => Admin::class],
+            [['username', 'email'], 'unique', 'targetClass' => User::class],
             ['username', 'string', 'min' => 4],
             ['email', 'email'],
             ['password', 'string', 'min' => 6],
@@ -31,7 +31,7 @@ class AdminForm extends Model
     {
         if (!$this->validate()) return false;
 
-        $user = new Admin();
+        $user = new User();
         $user->username = $this->username;
         $user->email = $this->email;
         $user->setPassword($this->password);
