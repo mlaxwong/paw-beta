@@ -27,28 +27,5 @@
         "yiisoft/yii2": "^2.0.15",
         "mlaxwong/paws": "@dev",
         "vlucas/phpdotenv": "^2.5"
-    },
-    "scripts": {
-        "deploy" : [
-            "git checkout -b temp",
-            "composer remove mlaxwong/paws",
-            "composer require mlaxwong/paws \"dev-develop\""
-        ],
-        "win-deploy" : [
-            "git checkout -b temp",
-            "composer remove mlaxwong/paws",
-            "composer require mlaxwong/paws \"dev-develop\"",
-            "if not exist deploy-temp mkdir deploy-temp",
-            "move dist deploy-temp/dist",
-            "move .env .local.env",
-            "move .server.env .env",
-            "yarn build:prod",
-            "move .env .server.env",
-            "move .local.env .env",
-            "move deploy-temp/dist/api dist/api"
-        ],
-        "haha" : [
-            "move deploy-temp/dist/api dist/api"
-        ]
     }
 }
