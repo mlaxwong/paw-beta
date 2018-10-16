@@ -17,7 +17,7 @@ set DEPLOY_BRANCH=deploy-branch-runtime
 set DEPLOY_RUNTIME_DIR=deploy-rumtime
 set DEPLOY_REMOTE=inspirennet-prod
 set COMPOSER_PAWS=mlaxwong/paws
-set COMPOSER_PAWS_VERSION=dev-develop
+set COMPOSER_PAWS_VERSION=dev-inspirennet
 
 rem deploy branch
 call git checkout -b %DEPLOY_BRANCH%
@@ -50,11 +50,10 @@ rem restore envs
 move .env .server.env
 move .local.env .env
 
-rem restore git
-call git checkout master
-call git branch -D %DEPLOY_BRANCH%
-
 rem remove deploy runtime files
 rmdir %DEPLOY_RUNTIME_DIR% /S /Q
 
+rem restore git
+call git checkout master
+call git branch -D %DEPLOY_BRANCH%
 @endlocal
