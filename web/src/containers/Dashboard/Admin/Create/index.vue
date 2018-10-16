@@ -23,6 +23,7 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+import router from '@/router'
 
 export default {
     data() {
@@ -35,11 +36,11 @@ export default {
         };
     },
     methods: {
-        ...mapActions('user', ['create']),
+        ...mapActions('admin', ['create']),
         handleSubmit(e) {
-            const {username, email, password} = this;
-            this.create({username, email, password}).then(response => {
-                console.log(response);
+            const {username, email, password, confirmPassword} = this;
+            this.create({username, email, password, confirmPassword}).then(response => {
+                router.push('/dashboard/admin');
             }, error => console.log(error));
         }
     }

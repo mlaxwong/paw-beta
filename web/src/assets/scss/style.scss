@@ -71,3 +71,24 @@ h6 {
 #nprogress .spinner{
     display: none;
 }
+
+.dg-container .dg-content-cont .dg-main-content
+{
+    border-radius: 0px;
+    
+    .dg-view-wrapper .dg-content-footer .dg-btn 
+    {
+        border-radius: 0px;
+    }
+
+    .dg-btn--cancel {
+        color: #fefefe;
+        background-color: #333;
+    }
+
+    .dg-btn--ok {
+        color: #333;
+        background-color: #fefefe;
+        border-color: #333;
+    }
+}

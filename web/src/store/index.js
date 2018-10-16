@@ -5,6 +5,7 @@ import dom from './dom'
 import nav from './nav'
 import field from './field'
 import user from './user'
+import admin from './admin'
 
 Vue.use(Vuex);
 
@@ -21,6 +22,7 @@ const modules = {
     nav,
     field,
     user,
+    admin,
 };
 
 const mutations = {
