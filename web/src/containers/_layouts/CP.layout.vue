@@ -22,7 +22,7 @@
                 <button class="global-sidebar-toggle a-part-of-global-sidebar" :class="{'show': showGlobalSidebar}" @click.prevent="handleClickToggleGlobalSidebar"><fa name="bars" class="a-part-of-global-sidebar" /></button>
             </div>
             <main>
-                <header>{{ loader }}</header>
+                <header></header>
                 <transition name="fade" mode="out-in">
                     <router-view/>
                 </transition>
@@ -52,9 +52,6 @@ export default {
     
     computed: {
         ...mapState('auth', ['identity']),
-        loader() {
-            return JSON.stringify(this.$store.state.bloader);
-        },
         dom() { return this.$store.state.dom },
         user() { return this.$store.getters.getUser },
         auth() { return this.$store.state.auth },

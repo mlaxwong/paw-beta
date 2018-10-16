@@ -22,13 +22,21 @@ const actions = {
             });
     },
     create({ commit }, {username, email, password, confirmPassword}) {
-        return services.admin.create(username, email, password, confirmPassword);
+        commit('addBLoader', 'vuex.admin.create', { root: true });
+        return services.admin.create(username, email, password, confirmPassword).then(admin => {
+            commit('removeBLoader', 'vuex.admin.create', { root: true });
+            return admin;
+        }, error => {
+            commit('removeBLoader', 'vuex.admin.create', { root: true });
+            return Promise.reject(error);
+        });
     },
     delete({ commit }, {index, admin}) {
-        commit('deleteRequest');
+        commit('addBLoader', 'vuex.admin.delete.' + admin.id, { root: true });
         return services.admin.remove(admin.id)
             .then(response => {
                 commit('deleteSuccess', index);
+                commit('removeBLoader', 'vuex.admin.delete.' + admin.id, { root: true });
                 return true;
             });
     }
@@ -40,8 +48,6 @@ const mutations = {
     },
     getAllSuccess(state, admins) {
         state.admins = admins;
-    },
-    deleteRequest(state) {
     },
     deleteSuccess(state, index) {
         state.admins.splice(index);
