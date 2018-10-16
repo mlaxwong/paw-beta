@@ -40,7 +40,7 @@ call composer require %COMPOSER_PAWS% "%COMPOSER_PAWS_VERSION%"
 rem build
 call yarn build:prod
 move %DEPLOY_RUNTIME_DIR%\dist\api dist\api
-move %DEPLOY_RUNTIME_DIR%\dist\.gitignore dist\.gitignore
+move %DEPLOY_RUNTIME_DIR%\dist\.htaccess dist\.htaccess
 
 rem deploy
 call git add .
@@ -52,9 +52,9 @@ move .env .server.env
 move .local.env .env
 
 rem remove deploy runtime files
-rmdir %DEPLOY_RUNTIME_DIR% /S /Q
+REM rmdir %DEPLOY_RUNTIME_DIR% /S /Q
 
 rem restore git
-call git checkout master
-call git branch -D %DEPLOY_BRANCH%
+REM call git checkout master
+REM call git branch -D %DEPLOY_BRANCH%
 @endlocal
