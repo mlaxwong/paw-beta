@@ -40,6 +40,7 @@ call composer require %COMPOSER_PAWS% "%COMPOSER_PAWS_VERSION%"
 rem build
 call yarn build:prod
 move %DEPLOY_RUNTIME_DIR%\dist\api dist\api
+move %DEPLOY_RUNTIME_DIR%\dist\.gitignore dist\.gitignore
 
 rem deploy
 call git add .
