@@ -6,10 +6,10 @@ use Paws;
 use paws\restapp\rest\AuthActiveController;
 use paws\restapp\records\User;
 use paws\restapp\models\UserSearch;
-use paws\restapp\models\AdminForm;
+use paws\restapp\models\CustomerForm;
 use paws\restapp\rbac\Role;
 
-class AdminController extends AuthActiveController
+class CustomerController extends AuthActiveController
 {
     public $modelClass = User::class;
 
@@ -23,15 +23,15 @@ class AdminController extends AuthActiveController
 
     public function actionCreate()
     {
-        $model = new AdminForm;
+        $model = new CustomerForm;
         $model->load(Paws::$app->request->post(), '');
         $admin = $model->submit();
-        return $admin ?: $model;
+        return $admin ?: $model; 
     }
 
     public function prepareDataProvider()
     {
         $searchModel = new UserSearch;
-        return $searchModel->search(ArrayHelper::merge(Paws::$app->request->getQueryParams(), ['role' => Role::ROLE_ADMIN]));
-    }
+        return $searchModel->search(ArrayHelper::merge(Paws::$app->request->getQueryParams(), ['role' => Role::ROLE_CUSTOMER]));
+    }   
 }

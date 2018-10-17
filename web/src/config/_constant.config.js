@@ -6,4 +6,5 @@ module.exports = {
     API_FIELD: process.env.URL_API + '/fields',
     API_USER: process.env.URL_API + '/users',
     API_ADMIN: process.env.URL_API + '/admins',
+    API_CUSTOMER: process.env.URL_API + '/customers',
 }

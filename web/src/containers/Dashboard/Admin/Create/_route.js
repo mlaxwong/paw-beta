@@ -7,7 +7,7 @@ export default {
         title: 'Create Admin',
         crumbs: [
             {label: 'Admin', link: '/dashboard/admin'},
-            {label: 'Admin', link: '/dashboard/admin/create'},
+            {label: 'Create', link: '/dashboard/admin/create'},
         ],
     },
 }
