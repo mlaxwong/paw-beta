@@ -3,7 +3,7 @@
 use paws\db\Migration;
 use paws\helpers\MigrationHelper;
 
-class m181017_083630_alter_user_table extends Migration
+class m181017_083630_alter_user extends Migration
 {
     public function safeUp()
     {
@@ -28,7 +28,7 @@ class m181017_083630_alter_user_table extends Migration
 
     public function down()
     {
-        echo "m181017_083630_alter_user_table cannot be reverted.\n";
+        echo "m181017_083630_alter_user cannot be reverted.\n";
 
         return false;
     }
