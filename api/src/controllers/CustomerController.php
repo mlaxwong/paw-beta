@@ -25,8 +25,8 @@ class CustomerController extends AuthActiveController
     {
         $model = new CustomerForm;
         $model->load(Paws::$app->request->post(), '');
-        $admin = $model->submit();
-        return $admin ?: $model; 
+        $customer = $model->submit();
+        return $customer ?: $model; 
     }
 
     public function prepareDataProvider()

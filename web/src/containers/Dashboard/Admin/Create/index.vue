@@ -38,8 +38,8 @@ export default {
     methods: {
         ...mapActions('admin', ['create']),
         handleSubmit(e) {
-            const {username, email, password, confirmPassword} = this;
-            this.create({username, email, password, confirmPassword}).then(response => {
+            const {username, email, password, confirmPassword, name} = this;
+            this.create({username, email, password, confirmPassword, name}).then(response => {
                 router.push('/dashboard/admin');
             }, error => console.log(error));
         }

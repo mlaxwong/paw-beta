@@ -21,9 +21,9 @@ const actions = {
                 return admin;
             });
     },
-    create({ commit }, {username, email, password, confirmPassword}) {
+    create({ commit }, {username, email, password, confirmPassword, name}) {
         commit('addBLoader', 'vuex.admin.create', { root: true });
-        return services.admin.create(username, email, password, confirmPassword).then(admin => {
+        return services.admin.create(username, email, password, confirmPassword, name).then(admin => {
             commit('removeBLoader', 'vuex.admin.create', { root: true });
             return admin;
         }, error => {

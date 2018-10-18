@@ -21,12 +21,12 @@ function getOne(id) {
     }); 
 }
 
-function create(username, email, password, confirmPassword) {
+function create(name, companyName, phone, email, address, personalIncharge) {
     return fetch ({
         url: globalConfig.constant.API_CUSTOMER,
         method: 'POST',
         auth: true,
-        body: JSON.stringify({username, email, password, confirmPassword}),
+        body: JSON.stringify({name, companyName, phone, email, address, personalIncharge}),
     });
 }
 

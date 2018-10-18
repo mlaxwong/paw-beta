@@ -21,9 +21,9 @@ const actions = {
                 return customer;
             });
     },
-    create({ commit }, {username, email, password, confirmPassword}) {
+    create({ commit }, {name, companyName, phone, email, address, personalIncharge}) {
         commit('addBLoader', 'vuex.customer.create', { root: true });
-        return services.customer.create(username, email, password, confirmPassword).then(customer => {
+        return services.customer.create(name, companyName, phone, email, address, personalIncharge).then(customer => {
             commit('removeBLoader', 'vuex.customer.create', { root: true });
             return customer;
         }, error => {

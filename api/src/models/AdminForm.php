@@ -18,7 +18,7 @@ class AdminForm extends Model
     public function rules()
     {
         return [
-            [['username', 'email', 'password', 'confirmPassword'], 'required'], 
+            [['username', 'email', 'password', 'confirmPassword', 'name'], 'required'], 
             [['username', 'email'], 'unique', 'targetClass' => User::class],
             ['username', 'string', 'min' => 4],
             ['email', 'email'],
